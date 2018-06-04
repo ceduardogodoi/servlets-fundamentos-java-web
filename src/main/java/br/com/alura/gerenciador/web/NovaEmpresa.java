@@ -21,7 +21,6 @@ public class NovaEmpresa extends HttpServlet {
 
 		Empresa empresa = new Empresa(nome);
 		new EmpresaDAO().adiciona(empresa);
-		System.out.println(empresa);
 
 		PrintWriter writer = resp.getWriter();
 		writer.println("<html><body>Empresa adicionada com sucesso: " + nome + "</body></html>");
