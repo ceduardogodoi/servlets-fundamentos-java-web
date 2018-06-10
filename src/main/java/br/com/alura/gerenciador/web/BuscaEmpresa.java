@@ -15,6 +15,22 @@ import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 @WebServlet(urlPatterns = "/busca")
 public class BuscaEmpresa extends HttpServlet {
+	
+	public BuscaEmpresa() {
+		System.out.println("Construindo uma Servlet do tipo BuscaEmpresa " + this);
+	}
+	
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		System.out.println("Inicializando a Servlet " + this);
+	}
+	
+	@Override
+	public void destroy() {
+		super.destroy();
+		System.out.println("Destruindo a Servlet " + this);
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,6 +39,7 @@ public class BuscaEmpresa extends HttpServlet {
 		writer.println("Resultado da busca:<br />");
 
 		String filtro = req.getParameter("filtro");
+		
 		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
 		writer.println("<ul>");
 		empresas.forEach(e -> writer.println("<li>" + e.getId() + " - " + e.getNome() + "</li>"));
