@@ -13,14 +13,16 @@
 		<input type="submit" value="Enviar" />
 	</form>
 
-	<form action="login" method="POST">
+	<form action="fazTudo" method="POST">
+		<input type="hidden" name="Tarefa" value="Login" />
 		Email: <input type="email" name="email" />
 		Senha: <input type="password" name="senha" />
 		<input type="submit" value="Enviar" />
 	</form>
 	
-	<form action="logout" method="POST">
-		<input type="submit" value="Deslogar"/>
+	<form action="fazTudo" method="POST">
+		<input type="hidden" name="Tarefa" value="Logout" />
+		<input type="submit" value="Deslogar" />
 	</form>
 </body>
 </html>
